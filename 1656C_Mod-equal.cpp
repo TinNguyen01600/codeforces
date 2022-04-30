@@ -13,6 +13,11 @@ this rule can be applied with arrays with more or less than 4 numbers.
 */
 
 int main(void){
-    int n;  cin >> n;
-    cout << n;
+    int t;  cin >> t;
+    while(t--){
+        int n; cin >> n;
+        char *arr = new char [n];
+        for (int i = 0; i < n; ++i) cin >> arr+i; 
+        for (int i = 0; i < n; i++) cout << *(arr+i) << " "; 
+    }
 }
