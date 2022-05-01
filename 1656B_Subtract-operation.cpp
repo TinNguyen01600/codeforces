@@ -18,8 +18,6 @@ int main(void){
         int n; cin >> n;
         char *arr = new char [n];
         for (int i = 0; i < n; ++i) cin >> arr+i; 
-
-        int s = n*(n-1)/2;  //the numbers of subtractions in an array with n elements is n(n-1)/2
         int sub;
         for(int i = 0; i<n-1; i++){
             for(int j = i+1; j<n; j++){
@@ -27,6 +25,5 @@ int main(void){
                 cout << sub << endl;
             }
         }
-        for (int i = 0; i < n; i++) cout << arr[i] << " "; 
     }
 }
