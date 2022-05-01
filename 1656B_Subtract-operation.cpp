@@ -15,15 +15,20 @@ this rule can be applied with arrays with more or less than 4 numbers.
 int main(void){
     int t;  cin >> t;
     while(t--){
-        int n; cin >> n;
-        char *arr = new char [n];
-        for (int i = 0; i < n; ++i) cin >> arr+i; 
-        int sub;
+        int n, k; 
+        cin >> n >> k;
+        int *arr = new int [n];
+        for (int i = 0; i < n; ++i) cin >> arr[i];
+
+        int output = 0;
         for(int i = 0; i<n-1; i++){
             for(int j = i+1; j<n; j++){
-                sub = arr[i] - arr[j];
-                cout << sub << endl;
+                int sub = arr[i] - arr[j];
+                if((sub == k) || (sub == -k)) {output = 1; break;}
             }
         }
+        if(output == 1) cout << "YES";
+        else cout << "NO";
+        cout << endl;
     }
 }
