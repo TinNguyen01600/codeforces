@@ -13,17 +13,18 @@ this rule can be applied with arrays with more or less than 4 numbers.
 */
 
 int main(void){
-    int t;  cin >> t;
+    long int t;  cin >> t;
     while(t--){
-        int n, k; 
+        long int n, k; 
+        long int i, j;  //count variables
         cin >> n >> k;
-        int *arr = new int [n];
-        for (int i = 0; i < n; ++i) cin >> arr[i];
+        long int *arr = new long int [n];
+        for (i = 0; i < n; ++i) cin >> arr[i];
 
         int output = 0;
-        for(int i = 0; i<n-1; i++){
-            for(int j = i+1; j<n; j++){
-                int sub = arr[i] - arr[j];
+        for(i = 0; i<n-1; i++){
+            for(j = i+1; j<n; j++){
+                long int sub = arr[i] - arr[j];
                 if((sub == k) || (sub == -k)) {output = 1; break;}
             }
         }
