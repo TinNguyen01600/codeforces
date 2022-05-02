@@ -1,6 +1,27 @@
 #include <iostream>
 using namespace std;
 
+/*
+The idea of the solution is that any array with elements (>1) can be equalized by mod because we can mod all the elements
+with the highest element multiple times, then we get all the numbers to 0. For ex:
+a   b   c   d   (in ascending order)
+a   b   c   0   (mod d)
+...             (mod c, b, a next)
+0   0   0   0
+
+In case there are 1s in the array, we have 2 cases:
+1. There are 0(s) also in the array, then the output is "NO", because x>=2 and 0,1 cannot be equalized by mod x
+2. There are no 0 in the array. Sort them in ascending order. We have 2 cases:
+    2.1 There are 2 consecutive numbers. The output is "NO" because 2 consecutive numbers cannot have 
+        the same remainder when divided by x>=2.
+    2.2 There are not 2 consecutive numbers. The output is "YES". We can mod all elements with (the highest element-1),
+        then we get all numbers to 1. For ex:
+        a   b   c   d   (in ascending order)
+        a   b   c   1   (mod (d-1))
+        ...             (mod (c-1), (b-1), (a-1))
+        1   1   1   1
+*/
+
 void sort(long int *a, long int size){
     long int i, k;
     for (i=0;i<size;i++){
@@ -22,6 +43,7 @@ int main(void){
         long int *arr = new long int [n];
         for (i = 0; i < n; ++i) {
             cin >> arr[i];
+
         }
     }
 }
