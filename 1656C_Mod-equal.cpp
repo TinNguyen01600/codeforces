@@ -41,9 +41,24 @@ int main(void){
         long int n; cin>>n;
         long int i, j;
         long int *arr = new long int [n];
+        long int count_0 = 0, count_1 = 0;
         for (i = 0; i < n; ++i) {
             cin >> arr[i];
+            if (arr[i] == 0)    count_0++;
+            if (arr[i] == 1)    count_1++;
+        }
 
+        if(count_1 == 0){       //if there is no 1 in the array
+            cout << "YES\n";
+        }
+        else{                   //if there are 1(s) in the array
+            if(count_0 > 0) cout << "NO\n";
+            else{
+                sort(arr, n);
+                for (i = 1; i < n; i++) {
+                    if(arr[i] - arr[i-1] == 1)
+                }
+            }
         }
     }
 }
