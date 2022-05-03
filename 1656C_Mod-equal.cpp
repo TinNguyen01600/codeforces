@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 /*
@@ -22,7 +23,7 @@ In case there are 1s in the array, we have 2 cases:
         1   1   1   1
 */
 
-void sort(long int *a, long int size){
+void mysort(long int *a, long int size){
     long int i, k;
     for (i=0;i<size;i++){
 		for(int j=i+1;j<size;j++){
@@ -52,12 +53,19 @@ int main(void){
             cout << "YES\n";
         }
         else{                   //if there are 1(s) in the array
-            if(count_0 > 0) cout << "NO\n";
-            else{
-                sort(arr, n);
+            if(count_0 > 0) cout << "NO\n";     //if there are 0(s) in the array
+            else{               //if there is no 0 in the array
+                //mysort(arr, n);
+                sort(arr, arr+n);
+                int consecutive = 0;
                 for (i = 1; i < n; i++) {
-                    if(arr[i] - arr[i-1] == 1)
+                    if(arr[i] - arr[i-1] == 1){
+                        consecutive = 1;
+                        break;
+                    }
                 }
+                if(consecutive == 0) cout << "YES\n";
+                else cout << "NO\n";
             }
         }
     }
