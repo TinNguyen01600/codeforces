@@ -56,15 +56,15 @@ int main(void){
             if(count_0 > 0) cout << "NO\n";     //if there are 0(s) in the array
             else{               //if there is no 0 in the array
                 //mysort(arr, n);
-                sort(arr, arr+n);
+                sort(arr, arr+n);       //the sort from algorithm library is faster than my bubble sort
                 int consecutive = 0;
-                for (i = 1; i < n; i++) {
-                    if(arr[i] - arr[i-1] == 1){
+                for (i = 1; i < n; i++) {           //scan the whole array
+                    if(arr[i] - arr[i-1] == 1){     //looking for 2 consecutive numbers
                         consecutive = 1;
                         break;
                     }
                 }
-                if(consecutive == 0) cout << "YES\n";
+                if(consecutive == 0) cout << "YES\n";   //if there is no 2 consecutive numbers in the array
                 else cout << "NO\n";
             }
         }
