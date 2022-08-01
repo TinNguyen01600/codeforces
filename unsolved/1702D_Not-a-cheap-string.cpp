@@ -4,6 +4,16 @@
 #include <string.h>
 using namespace std;
 
+void removeCharFromArray(char *str, char charsToRemove, long int len) {
+    int i;
+    for (i = 0; i<len; i++){
+        if (str[i] == charsToRemove) break;
+    }
+    string x(str);
+    x.erase(x.begin() + i);
+    strcpy(str, x.c_str());
+}
+
 void removeCharFromString(string &str, char charsToRemove, long int len) {
     int i;
     for (i = 0; i<len; i++){
@@ -15,6 +25,12 @@ void removeCharFromString(string &str, char charsToRemove, long int len) {
 int main(void){
     long int t; scanf("%ld", &t);
     while(t--){
+        // char *str, *sorted;
+        // scanf("%s", str);
+        // printf("%s", str);
+        // copy(str, str+len, sorted);
+        // sort(sorted, sorted + len);
+        // printf("%s", sorted);
         string str; 
         cin >> str;
         long int len = str.length();
