@@ -19,6 +19,7 @@ Subtractions can be (-) or (+), we only take positive results
    Sort alarm in ascending order
    result = alarm[0] + 24 - (time Vlad went to bed)
 */
+
 void array_2d_sort(int arr[][2], int len){
     int k, l;
     for (int i=0; i<len; i++){
@@ -35,21 +36,45 @@ void array_2d_sort(int arr[][2], int len){
 		}
 	}
 }
+
 int main(int argc, char const* argv[])
 {
     int t; cin >> t;
     while(t--){
-        int n, H, M;
+        int n, H, M, h, m;
         int j = 0;
         cin >> n >> H >> M;
         int alarm[n][2], result[n][2];
         for (int i = 0; i<n; i++){
             cin >> alarm[i][0] >> alarm[i][1];
-            result[j][0] = alarm[i][0] - H;
-            result[j][1] = alarm[i][1] - M;
+            h = alarm[i][0] - H;
+            m = alarm[i][1] - M;
+            if (m < 0){
+                m += 60;
+                h--;
+            }
+            if (h>=0 && m>=0){
+                result[j][0] = h;
+                result[j][1] = m;
+                j++;
+            }
+        }
+        array_2d_sort(alarm, n);
+        if (j == 0){
+            h = alarm[0][0] + 24 - H;
+            m = alarm[0][1] - M;
+            if (m < 0){
+                m += 60;
+                h--;
+            }
+            cout << h << " " << m << endl;
+        }
+        else{
+            array_2d_sort(result, j);
+            cout << result[0][0] << " " << result[0][1] << endl;
         }
         
-        array_2d_sort(result, n);
-        for (int i = 0; i<j; i++)   cout << result[i][0] << " " << result[i][1] << endl;
+        // array_2d_sort(result, n);
+        // for (int i = 0; i<j; i++)   cout << result[i][0] << " " << result[i][1] << endl;
     }
 }
