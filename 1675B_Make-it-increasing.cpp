@@ -7,12 +7,14 @@
 #include <list>
 #include <unordered_map>
 using namespace std;
-int check_0(int *arr, int len){
-    for (int i = 1; i<len; i++){
-        if (arr[i] == 0)    return 1;
-    }
-    return 0;
-}
+/*
+    if the last element of arr arr[n-1] < n-1, the array cannot be
+    operated to increase 
+    (because arr must be strictly increasing -> arr[n-1] is max)
+
+    if there exists 2 0s adjacently, count = -1 because arr[i-1] 
+    must be smaller than arr[i] and 0 cannot be divided to smaller
+*/
  
 int main(int argc, char const* argv[])
 {
@@ -24,16 +26,16 @@ int main(int argc, char const* argv[])
         int count = 0;
         if (arr[n-1] < n-1) count = -1;
         else{
-            int i = 0;
-            while (i < n-1){
-                if (check_0(arr, n) == 1){
+            int i = 1;
+            while (i < n){
+                if (arr[i-1] == 0 && arr[i] == 0){
                     count = -1;
                     break;
                 }
                 else{
-                    if (arr[i] >= arr[i+1]){
-                        arr[i] /= 2;
-                        i = -1;
+                    if (arr[i-1] >= arr[i]){
+                        arr[i-1] /= 2;
+                        i = 0;
                         count++;
                     }   
                 }
