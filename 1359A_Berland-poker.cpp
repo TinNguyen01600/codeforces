@@ -20,11 +20,11 @@ int main(int argc, const char * argv[]) {
         cin >> card >> joker >> player;
         card_per_player = card / player;
         if (joker <= card_per_player)   result = joker;
-        else if (card == joker) result = 0;
         else{
             player--;
             int joker_left = joker - card_per_player;
-            result = card_per_player - (joker_left / player + 1);
+            int k = (joker_left % player == 0) ? (joker_left / player) : (joker_left / player + 1);
+            result = card_per_player - k;
         }
         cout << result << endl;
     }
