@@ -13,7 +13,7 @@
 using namespace std;
 #define MAX_INPUT_LENGTH     100
 #define ll long long
- 
+
 int main(int argc, const char * argv[]) {
     ll n; cin >> n;
     vector<ll> v, r;
@@ -23,9 +23,7 @@ int main(int argc, const char * argv[]) {
         v.push_back(temp);
     }
     sort(v.begin(), v.end());
-    // for (int i = 0; i<n; i++)  cout << v[i] << " ";
-    // cout << endl;
- 
+    
     ll result = n/2;
  
     vector<ll> fir_half(result), sec_half(n-result);
@@ -49,17 +47,12 @@ int main(int argc, const char * argv[]) {
         }
         count++;
     }
+
+    result = 0;
+    for (int i = 0; i<n-2; i++){
+        if (r[i] > r[i+1] && r[i+1] < r[i+2])   result++;
+    }
  
-    result = (n%2==0) ? (result-1) : result;
     cout << result << endl;
     for (int i = 0; i<n; i++)  cout << r[i] << " ";
-    // for (int i = 0; i<result; i++)  cout << fir_half[i] << " ";
-    // cout << endl;
-    // for (int i = 0; i<n - result; i++)  cout << sec_half[i] << " ";
-    // cout << endl;
-    
-    // cout << endl;
-    // for (int i = 0; i<n; i++)  cout << v[i] << " ";
-    
-// }
 }
