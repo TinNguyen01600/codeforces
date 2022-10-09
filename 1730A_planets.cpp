@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
     while(t--){
         int n, c;
         cin >> n >> c;
-        int arr[101];
+        int arr[101];   // this array stores the number of times appearance of a[i]
         for (int i = 0; i<101; i++) arr[i] = 0;
  
         int x;
@@ -30,11 +30,9 @@ int main(int argc, const char * argv[]) {
  
         int price = 0;
         for (int i = 0; i<101; i++){
-            if (arr[i] == 1)    price++;
-            else if (arr[i] > 1)    price += c;
+            if (arr[i] > c)    price += c;
+            else price += arr[i];
         }
- 
-        int result = (price > n) ? n : price;
-        cout << result << endl;
+        cout << price << endl;
     }
 }
