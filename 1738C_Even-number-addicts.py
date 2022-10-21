@@ -1,5 +1,5 @@
 import math
- 
+
 t = int(input())
 while (t != 0):
     n = int(input())
@@ -10,9 +10,11 @@ while (t != 0):
     
     temp = math.ceil(count_odd / 2)
     if count_odd == 0:  print("Alice")
-    elif count_odd == 2: print("Bob")
-    elif temp % 2 == 0: print("Alice")
-    else:   
-        if n % 2 == 1: print("Bob")
-        else:   print("Alice")
+    else:
+        if temp % 2 == 0:   print("Alice")
+        else:
+            if count_odd % 2 == 0:  print("Bob")
+            else:
+                if n % 2 == 0:  print("Alice")
+                else:   print("Bob")
     t -= 1
